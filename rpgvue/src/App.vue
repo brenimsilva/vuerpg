@@ -144,6 +144,9 @@ export default {
     },
     playerHeal() {
       this.currentRound++;
+      if (this.specialAttack.cooldown === true) {
+        this.specialAttack.cooldownCounter++;
+      }
       const heal = this.getRandomNumber(12, 24);
       if (this.playerHealth + heal > 100) {
         this.playerHealth = 100;
